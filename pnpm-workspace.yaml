@@ -5,4 +5,9 @@ allowBuilds:
   workerd: true
 minimumReleaseAgeExclude:
   - '@astrojs/*'
+  - '@expressive-code/*'
   - astro
+  - astro-expressive-code
+  - expressive-code
+  - rehype-expressive-code
+  - svelte
