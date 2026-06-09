@@ -8,10 +8,10 @@ export const pioConfig: PioConfig = {
   width: 280, // 默认宽度
   height: 250, // 默认高度
   mode: "draggable", // 默认为可拖拽模式
-  hiddenOnMobile: true, // 默认在移动设备上隐藏
+  hiddenOnMobile: false, // 默认在移动设备上隐藏
   hideAboutMenu: false, // 隐藏内置 About 菜单按钮
   dialog: {
-    welcome: "欢迎来到我的博客!", // 欢迎词
+    welcome: "你也是来看我的吗", // 欢迎词
     touch: [
       "你在做什么呀?",
       "别碰我啦!",

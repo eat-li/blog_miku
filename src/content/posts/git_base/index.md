@@ -1,6 +1,6 @@
 ---
 title: git基础入门
-published: 2026-06-08
+published: 2026-06-01
 description: "新手git教程."
 image: "./cover.webp"
 tags: ["后端开发", "开发工具"]

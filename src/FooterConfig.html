@@ -1,1 +1,20 @@
-这里是HTML注入示例，你可以在这个文件中添加自定义的HTML内容
+<div style="text-align: center; line-height: 1.8;">
+  <p>一个分享技术与生活的个人博客</p>
+  <p>
+    <a href="/" style="color: var(--primary); text-decoration: none; margin: 0 8px;">首页</a> /
+    <a href="/about/" style="color: var(--primary); text-decoration: none; margin: 0 8px;">关于</a> /
+    <a href="/friends/" style="color: var(--primary); text-decoration: none; margin: 0 8px;">友链</a> /
+    <a href="/archive/" style="color: var(--primary); text-decoration: none; margin: 0 8px;">归档</a>
+  </p>
+  <p style="font-size: 0.85em; opacity: 0.7;">本站已运行 <span id="site-running-days"></span> 天</p>
+</div>
+
+<script>
+  (function() {
+    var startDate = new Date('2026-01-01');
+    var now = new Date();
+    var days = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+    var el = document.getElementById('site-running-days');
+    if (el) el.textContent = days;
+  })();
+</script>

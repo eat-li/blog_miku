@@ -4,10 +4,10 @@ import type { SiteConfig } from "../types/config";
 const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
 
 export const siteConfig: SiteConfig = {
-  title: "Mizuki",
-  subtitle: "One demo website",
-  siteURL: "https://mizuki.mysqil.com/", // 请替换为你的站点URL，以斜杠结尾
-  siteStartDate: "2025-01-01", // 站点开始运行日期，用于站点统计组件计算运行天数
+  title: "eat-li",
+  subtitle: "记录生活和技术",
+  siteURL: "https://blog-miku.pages.dev/", // 请替换为你的站点URL，以斜杠结尾
+  siteStartDate: "2026-06-01", // 站点开始运行日期，用于站点统计组件计算运行天数
 
   lang: SITE_LANG,
 
@@ -33,7 +33,7 @@ export const siteConfig: SiteConfig = {
     // 显示模式："text-icon" 显示图标+文本，"logo" 仅显示Logo
     mode: "text-icon",
     // 顶栏标题文本
-    text: "MizukiUI",
+    text: "eatli",
     // 顶栏标题图标路径，默认使用 public/assets/home/home.webp
     icon: "assets/home/home.webp",
     // 网站Logo图片路径
@@ -53,7 +53,7 @@ export const siteConfig: SiteConfig = {
 
   bilibili: {
     vmid: "169483195", // 在此处设置你的Bilibili用户ID (uid)，例如 "1129280784"
-    fetchOnDev: false, // 是否在开发环境下获取 Bilibili 数据（默认 false）
+    fetchOnDev: true, // 是否在开发环境下获取 Bilibili 数据（默认 false）
     coverMirror: "", // 封面图片镜像源（可选，如果需要使用镜像源，例如 "https://images.weserv.nl/?url="）
     useWebp: true, // 是否使用WebP格式（默认 true）
 
@@ -180,7 +180,7 @@ export const siteConfig: SiteConfig = {
   toc: {
     enable: true, // 总开关，启用目录功能
     mobileTop: true, // 手机端顶部 TOC 按钮
-    desktopSidebar: true, // 电脑端右侧边栏 TOC
+    desktopSidebar: false, // 电脑端右侧边栏 TOC
     floating: true, // 悬浮 TOC 按钮
     depth: 2, // 目录深度，1-6，1 表示只显示 h1 标题，2 表示显示 h1 和 h2 标题，依此类推
     useJapaneseBadge: true, // 使用日语假名标记（あいうえお...）代替数字，开启后会将 1、2、3... 改为 あ、い、う...
