@@ -70,7 +70,7 @@ export const siteConfig: SiteConfig = {
 
   // 日记页面 Memos API 地址，留空则使用静态数据
   diaryApiUrl: "",
- 
+
   // 文章列表布局配置
   postListLayout: {
     // 默认布局模式："list" 列表模式（单列布局），"grid" 网格模式（双列布局）
@@ -147,15 +147,14 @@ export const siteConfig: SiteConfig = {
 
     homeText: {
       enable: true,
-      title: "わたしの部屋",
+      title: "追风赶月莫停留",
       switchable: true,
-
       subtitle: [
-        "特別なことはないけど、君がいると十分です",
-        "今でもあなたは私の光",
-        "君ってさ、知らないうちに私の毎日になってたよ",
-        "君と話すと、なんか毎日がちょっと楽しくなるんだ",
-        "今日はなんでもない日。でも、ちょっとだけいい日",
+        "纵使无波澜光景，心怀暖意便足矣",
+        "岁月流转，那束光依旧照亮前路",
+        "不知不觉，过往点滴都融进朝夕",
+        "倾心交流相伴，行路也不再单调",
+        "普通的时日，亦有独属于自己的感悟",
       ],
       typewriter: {
         enable: true, // 启用副标题打字机效果
