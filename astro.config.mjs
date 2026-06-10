@@ -213,15 +213,25 @@ export default defineConfig({
       },
     },
     build: {
+      // 构建目标：现代浏览器 ES2020，减小产物体积
+      target: "es2020",
       // 静态资源处理优化，防止小图片转 base64 导致 HTML 体积过大
       assetsInlineLimit: 4096,
       // CSS 代码分割
       cssCodeSplit: true,
-      cssMinify: "esbuild",
+      // CSS 压缩：使用 LightningCSS（Vite 5+ 默认，比 esbuild 更快）
+      cssMinify: "lightningcss",
       // 内联小型 CSS 文件以减少网络请求
       inlineStylesheets: "auto",
-      // 生产环境移除 console 和 debugger
-      minify: "esbuild",
+      // 生产环境禁用 sourcemap，防止源代码泄露
+      sourcemap: false,
+      // JS 压缩：使用 Terser，完全移除注释和 legal comments
+      minify: "terser",
+      terserOptions: {
+        format: {
+          comments: false, // 移除所有注释（包括 /*! 许可证注释 */）
+        },
+      },
       rollupOptions: {
         onwarn(warning, warn) {
           if (
@@ -232,10 +242,29 @@ export default defineConfig({
           }
           warn(warning);
         },
+        output: {
+          // 手动分包：将大型第三方库拆分为独立 chunk，提升浏览器缓存命中率
+          // 只有库更新时对应 chunk 才会失效，避免所有依赖重新下载
+          manualChunks(id) {
+            if (!id.includes("node_modules")) return;
+            // Svelte 运行时（框架核心）
+            if (id.includes("/svelte/") || id.includes("/svelte-")) return "vendor-svelte";
+            // Markdown 文本处理（Markdown 渲染 + HTML 净化）
+            if (id.includes("marked") || id.includes("sanitize-html")) return "vendor-markdown";
+            // UI 组件库（Fancybox 灯箱 + OverlayScrollbars 滚动条）
+            if (id.includes("@fancyapps") || id.includes("overlayscrollbars")) return "vendor-ui";
+            // 图标库（Iconify Svelte 组件 + 图标数据）
+            if (id.includes("@iconify")) return "vendor-icons";
+            // Live2D 看板娘（体积较大，独立拆分避免影响其他缓存）
+            if (id.includes("l2d-widget")) return "vendor-live2d";
+            // 其他工具库（二维码、日期、HTTP 等小依赖合并）
+            if (id.includes("qrcode") || id.includes("dayjs") || id.includes("axios")) return "vendor-utils";
+          },
+        },
       },
     },
-    // 生产环境移除 console.log 和 debugger
-    esbuildOptions: {
+    // 生产环境移除 console 和 debugger（esbuild 转换阶段处理）
+    esbuild: {
       drop:
         process.env.NODE_ENV === "production" ? ["console", "debugger"] : [],
     },

@@ -47,8 +47,8 @@ export const siteConfig: SiteConfig = {
   },
 
   bangumi: {
-    userId: "your-bangumi-id", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
-    fetchOnDev: false, // 是否在开发环境下获取 Bangumi 数据（默认 false），获取前先执行 pnpm build 构建 json 文件
+    userId: "1246005", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
+    fetchOnDev: true, // 是否在开发环境下获取 Bangumi 数据（默认 false），获取前先执行 pnpm build 构建 json 文件
   },
 
   bilibili: {
@@ -65,7 +65,7 @@ export const siteConfig: SiteConfig = {
   },
 
   anime: {
-    mode: "bilibili", // 番剧页面模式："bangumi" 使用Bangumi API，"local" 使用本地配置，"bilibili" 使用Bilibili API
+    mode: "local", // 番剧页面模式："bangumi" 使用Bangumi API，"local" 使用本地配置，"bilibili" 使用Bilibili API
   },
 
   // 日记页面 Memos API 地址，留空则使用静态数据

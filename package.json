@@ -92,7 +92,8 @@
 		"fontmin": "^1.1.1",
 		"glob": "^13.0.6",
 		"postcss-import": "^16.1.1",
-		"postcss-nesting": "^14.0.0"
+		"postcss-nesting": "^14.0.0",
+		"terser": "^5.48.0"
 	},
 	"packageManager": "pnpm@11.1.3"
 }
